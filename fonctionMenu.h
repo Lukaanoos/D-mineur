@@ -9,6 +9,11 @@
     #include <conio.h>
 #endif
 
+#ifndef fonctionG
+    #define fonctionG
+    #include "fonctionGenerale.h"
+#endif
+
 void menu_custom(int demineurSize[]);
 int menu_level(int deminerSize[]);
 int menu_play();
