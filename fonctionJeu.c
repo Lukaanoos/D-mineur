@@ -28,8 +28,8 @@ void score(unsigned long timeur, int mode) {
         printf("Fichier score.txt introuvable /!\\");
         getch();
     } else {
-        fscanf(fichier, "%d", &bestScore9);
-        fscanf(fichier, "%d", &bestScore16);
+        fscanf(fichier, "%d", &bestScore9);//meilleur score 9x9
+        fscanf(fichier, "%d", &bestScore16);//meilleur score 16x16
         if (mode == 0) {
             printf("Le meilleur score est %d sec\n", bestScore9);
         } else if (mode == 1) {
@@ -38,11 +38,12 @@ void score(unsigned long timeur, int mode) {
         getch();
     }
     fclose(fichier);
+    //ecrit les meilleurs score dans le fichier
     fichier = fopen("score.txt", "w");
     if (mode == 0 && scoreGame < bestScore9) {
-        fprintf(scoreGame, "\n", bestScore16);
+        fprintf(fichier, "%d\n%d", scoreGame, bestScore16);
     } else if (mode == 1 && scoreGame < bestScore16) {
-        fprintf(bestScore9, "\n", scoreGame);
+        fprintf(fichier, "%d\n%d", bestScore9, scoreGame);
     }
     fclose(fichier);
 
