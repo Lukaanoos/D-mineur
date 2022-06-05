@@ -25,7 +25,6 @@ void score(unsigned long timeur, int mode) {
     int bestScore9; int bestScore16;
     fichier = fopen("score.txt", "r");
     if (fichier == NULL) {
-        printf("Fichier score.txt introuvable /!\\");
         getch();
     } else {
         fscanf(fichier, "%d", &bestScore9);//meilleur score 9x9
