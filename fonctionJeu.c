@@ -304,7 +304,7 @@ int start_game(int length, int width, int bombe) {
             } else if (length == width && length==16) {
                 score(begin, 1);
             } else {
-                score(begin, 1);
+                score(begin, -1);
             }
             return 1;
         }
