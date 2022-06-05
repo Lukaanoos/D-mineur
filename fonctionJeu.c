@@ -235,12 +235,13 @@ void enterCord(int caseCords[], int length, int width) {
     caseCords[1] = widthE;
 }
 
+//place les coordonnées des bombe dans le tableau demineurBombe
 void setBombe(int demineurBombe[], int length, int width, int nBombe, int firstTry) {
     srand(time(NULL));
     int i=0; int temp; int doubleBombe;
     while (i < nBombe) {
         temp = rand()%length * width + rand()%width;
-        if (temp != firstTry) {
+        if (temp != firstTry) { //vérify si la bombe n'est pas placé sur la première casse dévoilé
             doubleBombe = 0;
             for (int j=0; j<i; j++) {
                 if (demineurBombe[j] == temp) {
@@ -256,6 +257,7 @@ void setBombe(int demineurBombe[], int length, int width, int nBombe, int firstT
     }
 }
 
+//lance choisir au joueur si il veut placer un drapeau ou dévoiler une case
 char chooseBombeOrSafe() {
     do {
         printf("Choisir une action\n");
@@ -265,35 +267,38 @@ char chooseBombeOrSafe() {
     return input[0];
 }
 
+//change les case du démineur en -3 où il y a des bombes si le joueur perd
 void revealBombe(int* demineur, int demineurBombe[], int nBombe) {
     for (int i=0; i<nBombe; i++) {
         demineur[demineurBombe[i]] = -3;
     }
 }
 
+//lance la partie
 int start_game(int length, int width, int bombe) {
     int endGame = 0;
     int demineur[length * width];
     int demineurBombe[bombe];
+    //initialise le démineur
     for (int i=0; i < length; i++) {
         for (int j=0; j < width; j++) {
             demineur[i * width +j] = -1;
         }
-    }
+    }//initialise les bombes
     for (int i=0; i < bombe; i++) {
         demineurBombe[i] = -1;
     }
-    int zoneClean = 0;
+    int zoneClean = 0; //zoneClean est les zones découvertent par le joueur 
     int caseCords[2];
-    void (*printDemineur)();
+    void (*printDemineur)(); //pointeur de fonction
     if (length > 13 || width > 27) {
         printDemineur = &printDemineurBig;
     } else {
         printDemineur = &printDemineurSmall;
     }
-    unsigned long begin = getTime();
+    unsigned long begin = getTime(); //récupère le temps au début de la partie
     while (endGame == 0) {
-        if (zoneClean + bombe >= length * width) {
+        if (zoneClean + bombe >= length * width) { //check si le joueur a gagné
             if (length == width && length==9) {
                 score(begin, 0);
             } else if (length == width && length==16) {
@@ -303,16 +308,16 @@ int start_game(int length, int width, int bombe) {
             }
             return 1;
         }
-        (*printDemineur)(demineur, length, width);
+        (*printDemineur)(demineur, length, width); //affiche le démineur
         printf("\n\n");
         enterCord(caseCords, length, width);
-        if (chooseBombeOrSafe() == '1') {
+        if (chooseBombeOrSafe() == '1') { // le joueur place un drapeau
             if (demineur[caseCords[0] * width + caseCords[1]] == -1) {
                 demineur[caseCords[0] * width + caseCords[1]] = -2;
             } else if (demineur[caseCords[0] * width + caseCords[1]] == -2) {
                 demineur[caseCords[0] * width + caseCords[1]] = -1;
             }
-        } else {
+        } else { //le joueur dévoile une case
             if (demineurBombe[0] == -1) {
                 setBombe(demineurBombe, length, width, bombe, caseCords[0] * width + caseCords[1]);
             }
