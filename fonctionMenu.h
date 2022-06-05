@@ -14,6 +14,11 @@
     #include "fonctionGenerale.h"
 #endif
 
+#ifndef fonctionJ
+    #define fonctionJ
+    #include "fonctionJeu.h"
+#endif
+
 void menu_custom(int demineurSize[]);
 int menu_level(int deminerSize[]);
 int menu_play();
