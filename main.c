@@ -1,16 +1,16 @@
 #ifndef fonctionM
     #define fonctionM
-    #include fonctionMenu.h
+    #include "fonctionMenu.h"
 #endif
 
 #ifndef fonctionJ
     #define fonctionJ
-    #include fonctionJeu.h
+    #include "fonctionJeu.h"
 #endif
 
 #ifndef fonctionG
     #define fonctionG
-    #include fonctionGenerale.h
+    #include "fonctionGenerale.h"
 #endif
 
 //////////////////////////////
