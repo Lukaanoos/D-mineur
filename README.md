@@ -8,9 +8,16 @@ Projet: Demineur
 # Fonctionnement
 
 Afin de compiler le programme lancer le fichier makefile à l'aide de la commande "make".
-Le fichier score.txt doit etre dans le même répertoire que le fichier Demineur.
 
-Pour jouer au jeu utiliser les indices avant l'action voulut.
+Pour jouer au jeu utiliser les indices avant l'action voulut. 
+
+    ex:
+      1 - Jouer
+      
+      2 - Quitter
+      
+      -> Entrer 1 pour jouer et 2 pour quitter
+      
 Pour choisir un case entrer les coordonnées séparés par une virgule.
 
 Bonne chance.
