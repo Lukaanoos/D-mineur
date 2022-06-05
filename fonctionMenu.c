@@ -10,11 +10,12 @@
 
 char input[5]; //input
 
+//menu de taille personnalisée
 void menu_custom(int demineurSize[]) {
     do {
         clear();
         title();
-        printf("Entrez la longueur espace la largeur (longeur Max: 100, largeur Max 52): \n");
+        printf("Entrez la longueur espace la largeur (longeur Max: 100, largeur Max 52): \n"); //longeur
         scanf("%s", input);
         if (isdigit(input[2]) && isdigit(input[1]) && isdigit(input[0]) && input[3] == '\0') {
             demineurSize[0] = (input[0] - 48) * 100 + (input[1] - 48) * 10 + (input[2] - 48);
@@ -25,7 +26,7 @@ void menu_custom(int demineurSize[]) {
         } else {
             demineurSize[0] = 0;
         }
-        scanf("%s", input);
+        scanf("%s", input); //largeur
         if (isdigit(input[2]) && isdigit(input[1]) && isdigit(input[0]) && input[3] == '\0') {
             demineurSize[1] = (input[0] - 48) * 100 + (input[1] - 48) * 10 + (input[2] - 48);
         } else if (isdigit(input[1]) && isdigit(input[0]) && input[2] == '\0') {
@@ -39,7 +40,7 @@ void menu_custom(int demineurSize[]) {
     do {
         clear();
         title();
-        printf("Entrez le nombre de bombe (Max %d): \n", demineurSize[0] * demineurSize[1] - 1);
+        printf("Entrez le nombre de bombe (Max %d): \n", demineurSize[0] * demineurSize[1] - 1); //nombre de bombe
         scanf("%s", input);
         if (isdigit(input[3]) && isdigit(input[2]) && isdigit(input[1]) && isdigit(input[0]) && input[4] == '\0') {
             demineurSize[2] = (input[0] - 48) * 1000 + (input[0] - 48) * 100 + (input[1] - 48) * 10 + (input[2] - 48);
@@ -55,6 +56,7 @@ void menu_custom(int demineurSize[]) {
     } while (demineurSize[2] <= 0 || demineurSize[2] > demineurSize[0] * demineurSize[1] - 1);
 }
 
+//menu de choix de level
 int menu_level(int deminerSize[]) {
     do {
         clear();
@@ -64,7 +66,7 @@ int menu_level(int deminerSize[]) {
     } while (input[0] != '1' && input[0] != '2' && input[0] != '3' && input[0] != '4' || input[1] != '\0');
     switch (input[0]) {
         case '1':
-            deminerSize[0] = 9; deminerSize[1] = 9; deminerSize[2] = 10;
+            deminerSize[0] = 9; deminerSize[1] = 9; deminerSize[2] = 10; //longueur largeur nombreDeBombe
             break;
         case '2':
             deminerSize[0] = 16; deminerSize[1] = 16;  deminerSize[2] = 40;
@@ -79,6 +81,7 @@ int menu_level(int deminerSize[]) {
     return 1;
 }
 
+//menu pour jouer
 int menu_play() {
     int deminerSize[3];
     do {
