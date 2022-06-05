@@ -15,7 +15,7 @@ void menu_custom(int demineurSize[]) {
     do {
         clear();
         title();
-        printf("Entrez la longueur espace la largeur (longeur Max: 100, largeur Max 52): \n"); //longeur
+        printf("Entrez la longueur espace la largeur (longeur Max: 100, largeur Max 52): \n"); //longueur
         scanf("%s", input);
         if (isdigit(input[2]) && isdigit(input[1]) && isdigit(input[0]) && input[3] == '\0') {
             demineurSize[0] = (input[0] - 48) * 100 + (input[1] - 48) * 10 + (input[2] - 48);
