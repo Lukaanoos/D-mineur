@@ -1,11 +1,11 @@
 #ifndef fonctionG
     #define fonctionG
-    #include fonctionGenerale.h
+    #include "fonctionGenerale.h"
 #endif
 
 #ifndef fonctionM
     #define fonctionM
-    #include fonctionMenu.h //contient les bibliothèques
+    #include "fonctionMenu.h" //contient les bibliothèques
 #endif
 
 void boom();
