@@ -13,4 +13,4 @@ fonctionJeu.o: fonctionJeu.c fonctionJeu.h
 	gcc -c $< -o $@
 
 Demineur: main.o fonctionMenu.o fonctionGenerale.o fonctionJeu.o
-	gcc -c $^ -o $@
+	gcc $^ -o $@
