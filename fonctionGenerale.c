@@ -1,6 +1,6 @@
 #ifndef fonctionG
     #define fonctionG
-    #include fonctionGenerale.h
+    #include "fonctionGenerale.h"
 #endif
 
 
